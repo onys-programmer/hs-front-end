@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useEffect } from 'react';
 
 export default function Home() {
@@ -7,8 +6,9 @@ export default function Home() {
     }, []);
     return (
         <>
-            <div>거리</div>
-            <div className="font-roboto">거리</div>
+            <div className="w-full h-full bg-red-100">
+                dd
+            </div>
         </>
     );
 }
