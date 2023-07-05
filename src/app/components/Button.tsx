@@ -18,8 +18,8 @@ const buttonConfig: {
     // Colors
     // TODO: Color 테마컬러로 바꾸기
     primary: {
-        bgColor: 'bg-slate-600',
-        color: 'text-white',
+        bgColor: 'bg-[#FDEEEA]',
+        color: 'text-neutral-700',
         outline: 'border-primary-500 text-primary-500 bg-opacity-0 hover:bg-opacity-10',
     },
     secondary: {
@@ -40,6 +40,7 @@ interface ButtonProps {
     onClick?: Function;
     outlined?: boolean;
     children?: React.ReactNode;
+    disabled?: boolean;
 }
 
 export default function Button({
@@ -48,6 +49,7 @@ export default function Button({
     onClick = () => {},
     outlined = true,
     children,
+    disabled = false,
 }: ButtonProps) {
     return (
         <>
