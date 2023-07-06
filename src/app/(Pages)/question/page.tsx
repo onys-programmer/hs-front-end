@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Question from './Question';
+import Question from '../../components/question/Question';
 import { questions } from '@/__fixtures__/question';
 import Button from '@/app/components/Button';
 
