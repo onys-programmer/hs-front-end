@@ -1,4 +1,14 @@
 'use client';
+
+interface ButtonProps {
+    color?: string;
+    size?: string;
+    onClick?: Function;
+    outlined?: boolean;
+    children?: React.ReactNode;
+    disabled?: boolean;
+}
+
 const buttonConfig: {
     primary: {
         bgColor: string,
@@ -16,32 +26,24 @@ const buttonConfig: {
     [key: string]: any, // 인덱스 시그니처 추가
 } = {
     // Colors
-    // TODO: Color 테마컬러로 바꾸기
     primary: {
-        bgColor: 'bg-[#FDEEEA]',
-        color: 'text-neutral-700',
-        outline: 'border-primary-500 text-primary-500 bg-opacity-0 hover:bg-opacity-10',
+        bgColor: 'bg-geori-pink hover:bg-opacity-80',
+        color: 'text-neutral-100',
+        outline: 'border-geori-primary text-primary-500 bg-opacity-20 hover:bg-opacity-70 text-neutral-700',
     },
+    // TODO: Color 테마컬러로 바꾸기
     secondary: {
         bgColor: 'bg-slate-600',
         color: 'text-white',
-        outline: 'border-secondary-500 text-secondary-500 bg-opacity-0 hover:bg-opacity-10',
+        outline: 'border-secondary-500 text-secondary-500 bg-opacity-0 hover:bg-opacity-50',
     },
 
     // Sizes
     small: 'px-3 py-2',
     medium: 'px-4 py-2',
     large: 'px-5 py-2',
+    xl: 'py-2 w-full',
 };
-
-interface ButtonProps {
-    color?: string;
-    size?: string;
-    onClick?: Function;
-    outlined?: boolean;
-    children?: React.ReactNode;
-    disabled?: boolean;
-}
 
 export default function Button({
     color = 'primary',
@@ -54,12 +56,10 @@ export default function Button({
     return (
         <>
             <div
-                className={`
-                    rounded-lg border-2 font-bold transition-all duration-100 focus:outline-none ${
-                        buttonConfig[size]
-                    } ${outlined && buttonConfig[color].outline} ${buttonConfig[color].bgColor} ${
-                    buttonConfig[color].color
-                }`}
+                className={`cursor-pointer rounded-lg border-2 text-center transition-all duration-100 focus:outline-none
+                    ${buttonConfig[size]}  ${outlined ? buttonConfig[color].outline : buttonConfig[color].color}
+                    ${buttonConfig[color].bgColor}
+                    `}
                 onClick={() => onClick()}
             >
                 {children}
